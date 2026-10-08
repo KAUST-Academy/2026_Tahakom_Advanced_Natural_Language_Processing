@@ -509,10 +509,20 @@ icon  = "ri-timer-flash-line"
   status = "ready"
 
   [[days.resources]]
-  name   = "Labs"
-  detail = "In preparation"
+  name   = "Lab 1: Speculative Decoding from Scratch"
+  detail = "Train an eight-block target and a one-block draft on TinyStories, implement speculative sampling, check that the output distribution is unchanged, and measure the speed-up and what makes a good draft"
   kind   = "lab"
-  status = "todo"
+  file   = "Labs/Day_8/01_Speculative_Decoding_From_Scratch.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_8/01_Speculative_Decoding_From_Scratch.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2: Transformer-XL Segment-Level Recurrence"
+  detail = "Train a Transformer-XL language model on WikiText-2 with relative positions and a cached segment memory, then see where the memory helps, how much of it the model uses, and what recomputing the context would cost"
+  kind   = "lab"
+  file   = "Labs/Day_8/02_Transformer_XL_Segment_Recurrence.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_8/02_Transformer_XL_Segment_Recurrence.ipynb"
+  status = "ready"
 
 [[days]]
 slug  = "day9"
@@ -531,10 +541,12 @@ icon  = "ri-server-line"
   status = "ready"
 
   [[days.resources]]
-  name   = "Labs"
-  detail = "In preparation"
+  name   = "Lab 1: ZeRO from Scratch"
+  detail = "Simulate a four-GPU data-parallel cluster on one GPU with ring collectives, train DDP, ZeRO-1 and ZeRO-2 side by side and check they agree bit for bit, then work out what each stage, ZeRO-3 included, saves for 7B and 70B models"
   kind   = "lab"
-  status = "todo"
+  file   = "Labs/Day_9/01_ZeRO_Sharded_Data_Parallel_Training.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_9/01_ZeRO_Sharded_Data_Parallel_Training.ipynb"
+  status = "ready"
 
 [[days]]
 slug  = "day10"
@@ -560,10 +572,20 @@ icon  = "ri-shield-check-line"
   status = "ready"
 
   [[days.resources]]
-  name   = "Labs"
-  detail = "In preparation"
+  name   = "Lab 1: LLM-as-a-Judge"
+  detail = "Have Qwen3 models judge MT-Bench answer pairs in both orders, measure their position bias, and compare their verdicts with human experts and GPT-4"
   kind   = "lab"
-  status = "todo"
+  file   = "Labs/Day_10/01_LLM_as_a_Judge_Position_Bias_and_Human_Agreement.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_10/01_LLM_as_a_Judge_Position_Bias_and_Human_Agreement.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2: Backdoor Poisoning During Pretraining"
+  detail = "Pretrain a small GPT on C4 with a few poisoned pages that teach it to write gibberish after a trigger, then measure how many pages the backdoor takes and whether more clean data dilutes it"
+  kind   = "lab"
+  file   = "Labs/Day_10/02_Backdoor_Poisoning_During_Pretraining.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_10/02_Backdoor_Poisoning_During_Pretraining.ipynb"
+  status = "ready"
 
 # -----------------------------------------------------------------------------
 # Extra — optional material, on its own page, available all fortnight.

@@ -48,9 +48,6 @@ README explains the day order: each day comes after the days its decks build on.
 Files are numbered in teaching order within each day. Optional material is
 listed on its day's page, marked *Optional*.
 
-Days 8 to 10 have no labs yet. Each shows a *Coming soon* row until its labs
-are added.
-
 Adding or replacing a file is: drop it in, add or update its entry in
 [`course.toml`](course.toml), run `python3 build.py --check`, commit, push.
 
