@@ -1,0 +1,79 @@
+# Lab environment for Advanced Natural Language Processing
+# (Phase 2B of the Tahakom AI Early Careers Program).
+#
+# Pinned to compatible releases so a wheelhouse built weeks before the course
+# installs the same thing in the classroom. See OFFLINE.md for the
+# `pip download` / `--no-index` offline install.
+#
+# Unpinned lines come from the labs' own imports and install cells and have not
+# been resolved together yet: pin them when you build and test the wheelhouse.
+# The install cells disagree in places (Day 3's QLoRA lab asks for transformers
+# 4.42.3 or newer; the Unsloth labs on Days 6 and 7 pin datasets below 4.0 and
+# their own xformers and protobuf), so those need a decision.
+
+# Every day.
+numpy~=2.1
+pandas~=2.2
+scipy~=1.14
+scikit-learn~=1.5
+matplotlib~=3.9
+seaborn~=0.13
+pillow
+requests
+tqdm
+jupyterlab~=4.2
+ipywidgets~=8.1
+
+# Every day. Most labs expect a GPU (the newer ones were timed on a Colab T4);
+# on a CPU wheel they run, but slowly, and the 4-bit labs need CUDA.
+torch~=2.5
+torchvision
+
+# Hugging Face models and datasets, every day.
+transformers
+datasets
+huggingface_hub
+accelerate
+tokenizers
+sentencepiece
+evaluate
+
+# Day 1: Arabic text in the translation lab.
+python-bidi
+
+# Day 3: fine-tuning and PEFT. bitsandbytes (4-bit loading) is also used on
+# Days 4, 5 and 7, and needs CUDA.
+peft
+bitsandbytes
+kagglehub
+
+# Day 4: semantic search over the refinery guide.
+gensim
+nltk
+openpyxl
+
+# Day 5: agents and the SQL analyst. The agents lab needs a Gemini API key.
+langchain
+langchain-community
+langchain-experimental
+langchain-google-genai
+google-generativeai
+chromadb
+pandasql
+xlrd
+
+# Day 7: conversational fine-tuning with Unsloth (also Day 6's optional GRPO lab).
+trl
+unsloth
+
+# Optional labs only.
+arabic-reshaper           # Day 1: Arabic BERT
+bert-score                # Day 1: Arabic BERT
+sentence-transformers     # Days 4 and 5: RAG
+faiss-cpu                 # Days 4 and 5: RAG
+langchain-text-splitters  # Day 5: agentic RAG
+ragatouille               # Day 4: local RAG
+pacmap                    # Day 4: local RAG
+plotly                    # Day 4: local RAG
+ollama                    # Day 4: prompt engineering with Ollama (needs the Ollama server)
+vllm                      # Day 6: Qwen3 GRPO

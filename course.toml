@@ -1,0 +1,578 @@
+# =============================================================================
+# Advanced Natural Language Processing — course content
+# Phase 2B of the Tahakom AI Early Careers Program (the NLP track).
+#
+# This file is the single source of truth for the website. Edit it, run
+# `python3 build.py --check`, and every page is regenerated. Never edit the
+# generated HTML in _site/ — it is deleted and rebuilt every time.
+#
+# Resource `status`:
+#   todo   -> renders greyed out as "Coming soon", not linked, not checked.
+#   ready  -> renders as a button; `file` must exist or --check fails the build.
+#
+# Material comes from Tahakom_Early_Careers/Phase_2B_Advanced_Natural_Language_Processing,
+# day for day and with the same file names: its Day_NN_<Title>/Lectures/ is
+# Slides/Day_N/ here, its Labs/ is Labs/Day_N/, and its Optional/ material is in
+# an Optional/ subfolder of each. README.md has the details.
+# =============================================================================
+
+[course]
+title      = "Advanced Natural Language Processing"
+title_lead = "Advanced"
+title_rest = "Natural Language Processing"
+
+tagline  = "Phase 2B of the Tahakom AI Early Careers Program, at Oxford from 12 to 23 October 2026: ten days from the transformer to large language models, how they are adapted and aligned, and how they are run in production."
+client   = "Tahakom"
+provider = "KAUST Academy"
+year     = "2026"
+
+starts   = "2026-10-12"
+ends     = "2026-10-23"
+location = "Oxford"
+
+# Drives the footer licence link and the Colab URL pattern below.
+repo         = "KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing"
+
+license      = "GPL-3.0"
+license_note = "Recording and uploading lectures online is not permitted."
+
+summary = """
+The natural language processing track of the AI Early Careers Program. It starts
+with attention and the transformer, builds up to large language models,
+tokenization and mixture of experts, then adapts them with fine-tuning,
+prompting, retrieval and reasoning, connects them to images and tools, and aligns
+them with reinforcement learning. The second week turns to how modern models are
+built and run: the transformer since 2017, inference optimization and long
+context, distributed training, and evaluation and security.
+"""
+
+# -----------------------------------------------------------------------------
+# Weeks
+#
+# Two UK teaching weeks, Monday to Friday. Each [[weeks]] block becomes a
+# dropdown in the nav and a section on the home page; a day joins a week with
+# `week = N` (1-based, in the order below). Delete every [[weeks]] block to get
+# the template's flat nav and single schedule back.
+# -----------------------------------------------------------------------------
+
+[[weeks]]
+label = "Week 1"
+title = "Transformers, Language Models and Agents"
+blurb = "Monday 12 to Friday 16 October. Attention and the transformer, large language models, tokenization and mixture of experts, fine-tuning and PEFT, prompting, retrieval and reasoning models, then multimodal models and agents."
+
+[[weeks]]
+label = "Week 2"
+title = "Alignment, Modern Architectures and Production"
+blurb = "Monday 19 to Friday 23 October. RL post-training with GRPO and GSPO, the transformer from 2017 to 2026, inference optimization and long context, distributed training and serving, then evaluation, security and enterprise NLP."
+
+# -----------------------------------------------------------------------------
+# Days
+#
+# Each day is 6 hours of contact time: two lecture blocks and two lab blocks.
+# Rows marked "Optional" are extension material, not taught in the 6 hours.
+# `date` is a TOML date (no quotes); it is shown on the day's card and page.
+#
+# Colab URLs: https://colab.research.google.com/github/<repo>/blob/main/<path>
+# with the path percent-encoded (`&` is %26, `(` and `)` are %28 and %29).
+# -----------------------------------------------------------------------------
+
+[[days]]
+slug  = "day1"
+label = "Day 1"
+week  = 1
+date  = 2026-10-12
+title = "Transformer Architecture"
+blurb = "The architecture everything else builds on: attention, from alignment functions to queries, keys and values, then the transformer block, positional encoding, causal masking and the normalization choices modern models make."
+icon  = "ri-node-tree"
+
+  [[days.resources]]
+  name   = "Attention Mechanism"
+  detail = "Why sequence models need attention, attention models and alignment functions, queries, keys and values, decoding sequences, and the limits of attention"
+  kind   = "slides"
+  file   = "Slides/Day_1/01_Attention_Mechanism.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Transformers"
+  detail = "Self-attention and multi-head attention, positional encoding, the transformer block, encoder-decoder architecture and causal masking, pre-LN versus post-LN, LayerNorm versus RMSNorm, and transformer variants"
+  kind   = "slides"
+  file   = "Slides/Day_1/02_Transformers.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 1: Attention-Based Sentiment Classifier"
+  detail = "Build an IMDb sentiment classifier around an attention layer, from text cleaning and a vocabulary up, and use the attention weights to see what it reads"
+  kind   = "lab"
+  file   = "Labs/Day_1/01_attention-based-classifier.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_1/01_attention-based-classifier.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2: Attention for Arabic-English Translation"
+  detail = "Queries, keys and values from first principles, then a sequence-to-sequence translator with attention, trained on classical Arabic-English sentence pairs"
+  kind   = "lab"
+  file   = "Labs/Day_1/02_Attention_Mechanism_Arabic_English.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_1/02_Attention_Mechanism_Arabic_English.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 3: Transformers with BERT"
+  detail = "From self-attention to the transformer, then BERT and extractive question answering on SQuAD"
+  kind   = "lab"
+  file   = "Labs/Day_1/03_Transformers_with_BERT_English.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_1/03_Transformers_with_BERT_English.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: Attention for Japanese-English Translation"
+  detail = "The attention translator from Lab 2 on English-Japanese pairs from JParaCrawl"
+  kind   = "lab"
+  file   = "Labs/Day_1/Optional/01_Attention_Mechanism_Japanese_English.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_1/Optional/01_Attention_Mechanism_Japanese_English.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: Transformers with BERT in Arabic"
+  detail = "Lab 3 in Arabic: AraBERT and extractive question answering on MLQA"
+  kind   = "lab"
+  file   = "Labs/Day_1/Optional/02_Transformers_with_BERT_Arabic.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_1/Optional/02_Transformers_with_BERT_Arabic.ipynb"
+  status = "ready"
+
+[[days]]
+slug  = "day2"
+label = "Day 2"
+week  = 1
+date  = 2026-10-13
+title = "Scaling Laws and Tokenization"
+blurb = "What makes a language model large: BERT and GPT, scaling laws, pre-training and tokenization from words to bytes, context windows, then mixture-of-experts models that grow capacity without growing per-token compute."
+icon  = "ri-text"
+
+  [[days.resources]]
+  name   = "Large Language Models"
+  detail = "BERT and GPT, scaling laws, pre-training, levels of tokenization and byte-pair encoding, token-free models, tokenization pitfalls, and the limits of the context window"
+  kind   = "slides"
+  file   = "Slides/Day_2/01_Large_Language_Models.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Mixture of Experts"
+  detail = "Sparse versus dense models, gating and top-k routing, load balancing, Switch Transformer, GShard, Mixtral and DeepSeek, and expert parallelism"
+  kind   = "slides"
+  file   = "Slides/Day_2/02_Mixture_of_Experts.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 1: Encoder vs Decoder vs Encoder-Decoder"
+  detail = "Ask the same questions of an extractive DistilBERT, FLAN-T5 and a Qwen2.5 chat model, and compare how each answers, hallucinates and copes with long inputs"
+  kind   = "lab"
+  file   = "Labs/Day_2/01_EncoderVsDecoderVsEnc-Dec.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_2/01_EncoderVsDecoderVsEnc-Dec.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2: Pretraining a Language Model from Scratch"
+  detail = "Clean a mathematics textbook, train a BPE tokenizer on it and pretrain a small GPT until it writes like the book, then probe what it did and did not learn"
+  kind   = "lab"
+  file   = "Labs/Day_2/02_Pretraining_a_Language_Model_From_Scratch.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_2/02_Pretraining_a_Language_Model_From_Scratch.ipynb"
+  status = "ready"
+
+[[days]]
+slug  = "day3"
+label = "Day 3"
+week  = 1
+date  = 2026-10-14
+title = "Efficient Adaptation and Fine-Tuning"
+blurb = "Adapting a pretrained model: supervised fine-tuning, RLHF with reward models, PPO and DPO, constitutional AI, then parameter-efficient fine-tuning with adapters, LoRA and QLoRA."
+icon  = "ri-equalizer-line"
+
+  [[days.resources]]
+  name   = "Fine-Tuning LLMs and RLHF"
+  detail = "Fine-tuning methods, supervised fine-tuning, RLHF with a reward model and PPO, DPO and beyond, constitutional AI and RLAIF, LoRA and QLoRA, other PEFT methods, and model merging"
+  kind   = "slides"
+  file   = "Slides/Day_3/01_Fine_Tuning_LLMs_and_RLHF.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 1: Fine-Tuning DistilBERT"
+  detail = "Fine-tune DistilBERT for IMDb sentiment with the Hugging Face Trainer, from dataset splits to training curves and test accuracy"
+  kind   = "lab"
+  file   = "Labs/Day_3/01_Transformer_finetuning.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_3/01_Transformer_finetuning.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2: Supervised Fine-Tuning"
+  detail = "Teach a Qwen model to turn requests into structured JSON with the Amazon MASSIVE dataset, and measure it against the frozen model"
+  kind   = "lab"
+  file   = "Labs/Day_3/02_SFT.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_3/02_SFT.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 3: PEFT with Adapters and LoRA"
+  detail = "Bottleneck adapters on BERT, then LoRA on Qwen2.5-0.5B, training a small fraction of the parameters"
+  kind   = "lab"
+  file   = "Labs/Day_3/03_PEFT_Adapters_and_LoRA.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_3/03_PEFT_Adapters_and_LoRA.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 4: QLoRA"
+  detail = "Fine-tune a 4-bit Gemma-2 9B with QLoRA to predict which of two chatbot responses people preferred, on LMSYS arena conversations"
+  kind   = "lab"
+  file   = "Labs/Day_3/04_QLoRA.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_3/04_QLoRA.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: QLoRA on Qwen2.5"
+  detail = "The third part of Lab 3: QLoRA on the same Qwen2.5-0.5B, a lighter run than Lab 4"
+  kind   = "lab"
+  file   = "Labs/Day_3/Optional/01_PEFT_QLoRA.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_3/Optional/01_PEFT_QLoRA.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: Arabic-English Translation with mBART"
+  detail = "Fine-tune mBART-50 to translate between Arabic and English in both directions"
+  kind   = "lab"
+  file   = "Labs/Day_3/Optional/02_mBART_Fine-tuning.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_3/Optional/02_mBART_Fine-tuning.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: BERT and T5 for Question Answering (Solution)"
+  detail = "Extractive question answering with BERT and generative question answering with FLAN-T5, with tokenizer, hallucination and token-budget experiments worked through"
+  kind   = "lab"
+  file   = "Labs/Day_3/Optional/03_BERT_and_T5_for_Question_Answering_Solution.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_3/Optional/03_BERT_and_T5_for_Question_Answering_Solution.ipynb"
+  status = "ready"
+
+[[days]]
+slug  = "day4"
+label = "Day 4"
+week  = 1
+date  = 2026-10-15
+title = "LLM Reasoning and Retrieval-Augmented Generation"
+blurb = "Getting more from a trained model: prompts, in-context learning and decoding settings, chain-of-thought, self-consistency and ReAct, retrieval-augmented generation, then large reasoning models and the limits of their reasoning."
+icon  = "ri-lightbulb-line"
+
+  [[days.resources]]
+  name   = "Prompting and RAG"
+  detail = "Prompts and in-context learning, decoding parameters, prompts for common tasks, few-shot and chain-of-thought prompting, self-consistency, ReAct, retrieval-augmented generation, and LLM judges"
+  kind   = "slides"
+  file   = "Slides/Day_4/01_Prompting_and_RAG.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Large Reasoning Models"
+  detail = "Reasoning versus pattern matching, the leading reasoning models, chain-of-thought, tree-of-thought and self-consistency, instruction tuning for reasoning, and what a reasoning trace does and does not tell you"
+  kind   = "slides"
+  file   = "Slides/Day_4/02_Large_Reasoning_Models.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 1: Prompt Engineering"
+  detail = "Basic, few-shot and chain-of-thought prompting on open models such as Llama 3.2 3B and Phi-3, and how much each technique changes the answer"
+  kind   = "lab"
+  file   = "Labs/Day_4/01_Prompt_Engineering.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_4/01_Prompt_Engineering.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2: Semantic Search in a Refinery Manual"
+  detail = "Exercise: turn the 50 pages of a refinery operations guide into vectors, search them with technicians' questions, and measure the results against ground truth"
+  kind   = "lab"
+  file   = "Labs/Day_4/02_Semantic_Search_in_a_Refinery_Manual.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_4/02_Semantic_Search_in_a_Refinery_Manual.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2 data: Refinery Operations Guide"
+  detail = "The spreadsheet Lab 2 reads. Keep it in the same folder as the notebook; on Colab, upload it to the session first"
+  kind   = "data"
+  file   = "Labs/Day_4/refinery_operations_guide.xlsx"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: Local RAG with LangChain"
+  detail = "A retrieval-augmented pipeline over the Hugging Face documentation: chunking, embeddings, a vector store, a reader model and reranking"
+  kind   = "lab"
+  file   = "Labs/Day_4/Optional/01_Advance_RAG.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_4/Optional/01_Advance_RAG.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: Prompt Engineering with Ollama"
+  detail = "Lab 1 on models served locally by Ollama"
+  kind   = "lab"
+  file   = "Labs/Day_4/Optional/02_Prompt_Engineering_Ollama_local.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_4/Optional/02_Prompt_Engineering_Ollama_local.ipynb"
+  status = "ready"
+
+[[days]]
+slug  = "day5"
+label = "Day 5"
+week  = 1
+date  = 2026-10-16
+title = "Agentic and Multimodal AI"
+blurb = "Language models that see and act: vision-language models and multimodal architectures, agents that call tools and write code, and how to keep agents safe from prompt injection and other attacks."
+icon  = "ri-robot-line"
+
+  [[days.resources]]
+  name   = "Multimodal NLP"
+  detail = "Vision-language models, the current multimodal landscape across images, documents, video and audio, and multimodal architectures"
+  kind   = "slides"
+  file   = "Slides/Day_5/01_Multimodal_NLP.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Agentic AI"
+  detail = "What makes a system agentic, tool use and code generation, continual learning in agents, and safety, ethics and control"
+  kind   = "slides"
+  file   = "Slides/Day_5/02_Agentic_AI.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "AI Safety for Agents"
+  detail = "A taxonomy of agent risks, adversarial threats and prompt injection, system and model safeguards, human oversight, multi-agent risks, governance, and a case study"
+  kind   = "slides"
+  file   = "Slides/Day_5/03_AI_Safety_for_Agents.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 1: A Vision LLM from Scratch"
+  detail = "Connect a CLIP vision encoder to Qwen2.5-0.5B and train the result to caption Flickr8k images"
+  kind   = "lab"
+  file   = "Labs/Day_5/01_VLLM.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_5/01_VLLM.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2: Building AI Agents"
+  detail = "From a Gemini chatbot with memory to tools, retrieval and a data-analyst agent, one step at a time. Needs your own Gemini API key"
+  kind   = "lab"
+  file   = "Labs/Day_5/02_AI_Agents.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_5/02_AI_Agents.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 3: Qwen3 SQL Analyst"
+  detail = "Ask questions about a spreadsheet in plain English: Qwen3 writes the SQL and runs it on an in-memory SQLite copy of the data"
+  kind   = "lab"
+  file   = "Labs/Day_5/03_Qwen3_SQL_Analyst.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_5/03_Qwen3_SQL_Analyst.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: CLIP"
+  detail = "Image-text matching with OpenAI's CLIP on COCO captions"
+  kind   = "lab"
+  file   = "Labs/Day_5/Optional/01_CLIP.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_5/Optional/01_CLIP.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: Advanced RAG and Agentic RAG"
+  detail = "Dense retrieval and cross-encoder reranking over the Hugging Face documentation with cited answers, then a router agent that chooses the retrieval tool"
+  kind   = "lab"
+  file   = "Labs/Day_5/Optional/02_Advanced_RAG_and_Agentic_RAG.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_5/Optional/02_Advanced_RAG_and_Agentic_RAG.ipynb"
+  status = "ready"
+
+[[days]]
+slug  = "day6"
+label = "Day 6"
+week  = 2
+date  = 2026-10-19
+title = "Alignment and Preference Optimization"
+blurb = "Post-training with rewards: reinforcement learning with verifiable rewards, GRPO and GSPO, the DeepSeek-R1 pipeline, and preference optimization with DPO and learned reward models."
+icon  = "ri-thumb-up-line"
+
+  [[days.resources]]
+  name   = "RL Post-Training: GRPO and GSPO"
+  detail = "Reinforcement learning with verifiable rewards, RL post-training for reasoning, GRPO's group-relative advantages, GSPO's sequence-level ratios, and the DeepSeek-R1 pipeline"
+  kind   = "slides"
+  file   = "Slides/Day_6/01_RL_Post_Training_GRPO_and_GSPO.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 1: DPO from Scratch"
+  detail = "Exercise: preference-tune a tiny GPT with DPO, with no reward model, then recover the reward it implicitly learned"
+  kind   = "lab"
+  file   = "Labs/Day_6/01_DPO_TinyLM_Exercise.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_6/01_DPO_TinyLM_Exercise.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2: RLHF from Scratch"
+  detail = "Exercise: fit a Bradley-Terry reward model to preferences, optimize a policy against it with GRPO and a KL penalty, and watch it reward-hack"
+  kind   = "lab"
+  file   = "Labs/Day_6/02_RLHF_RewardModel_GRPO_Exercise.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_6/02_RLHF_RewardModel_GRPO_Exercise.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 3: Large Reasoning Models"
+  detail = "Chain-of-thought and self-consistency voting, a rule-based math verifier, GRPO and GSPO advantages, then Qwen3's thinking mode on real problems"
+  kind   = "lab"
+  file   = "Labs/Day_6/03_Large_Reasoning_Models.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_6/03_Large_Reasoning_Models.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: DPO from Scratch (Solution)"
+  detail = "Worked solution to Lab 1"
+  kind   = "lab"
+  file   = "Labs/Day_6/Optional/01_DPO_TinyLM_Solution.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_6/Optional/01_DPO_TinyLM_Solution.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: RLHF from Scratch (Solution)"
+  detail = "Worked solution to Lab 2"
+  kind   = "lab"
+  file   = "Labs/Day_6/Optional/02_RLHF_RewardModel_GRPO_Solution.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_6/Optional/02_RLHF_RewardModel_GRPO_Solution.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Optional: GRPO on Qwen3 4B"
+  detail = "Train Qwen3-4B to reason on math problems with GRPO and Unsloth, then save it for vLLM and llama.cpp"
+  kind   = "lab"
+  file   = "Labs/Day_6/Optional/03_Qwen3_(4B)_GRPO.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_6/Optional/03_Qwen3_%284B%29_GRPO.ipynb"
+  status = "ready"
+
+[[days]]
+slug  = "day7"
+label = "Day 7"
+week  = 2
+date  = 2026-10-20
+title = "Modern Foundation Models"
+blurb = "What changed in the transformer between 2017 and 2026, from RoPE, RMSNorm and SwiGLU to FlashAttention, mixture of experts, multimodality and thinking tokens, then recent directions: Llama 3, byte-level and diffusion language models."
+icon  = "ri-cpu-line"
+
+  [[days.resources]]
+  name   = "Transformers: 2017 vs 2026"
+  detail = "Positional information, normalization and activations, KV-cache memory with GQA and MLA, FlashAttention-2, mixture of experts, state-space models, multimodality, and test-time compute"
+  kind   = "slides"
+  file   = "Slides/Day_7/01_Transformers_2017_vs_2026.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Recent Advancements in NLP"
+  detail = "FlashAttention from the inside, the Llama 3 herd of models, the Byte Latent Transformer, and large language diffusion models"
+  kind   = "slides"
+  file   = "Slides/Day_7/02_Recent_Advancements_in_NLP.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 1: Transformers, 2017 vs 2026"
+  detail = "Implement the changes one at a time: multi-head attention, sinusoidal and rotary positions, a KV cache and grouped-query attention, a top-k MoE router, RMSNorm, and pre- versus post-LN"
+  kind   = "lab"
+  file   = "Labs/Day_7/01_Transformers_2017_vs_2026.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_7/01_Transformers_2017_vs_2026.ipynb"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Lab 2: Conversational Fine-Tuning of Llama 3.2"
+  detail = "Fine-tune Llama 3.2 1B and 3B on chat data with LoRA and Unsloth, training on the responses only, then chat with the result and save it"
+  kind   = "lab"
+  file   = "Labs/Day_7/02_Llama3_2_1B_and_3B_Conversational_Question.ipynb"
+  colab  = "https://colab.research.google.com/github/KAUST-Academy/2026_Tahakom_Advanced_Natural_Language_Processing/blob/main/Labs/Day_7/02_Llama3_2_1B_and_3B_Conversational_Question.ipynb"
+  status = "ready"
+
+[[days]]
+slug  = "day8"
+label = "Day 8"
+week  = 2
+date  = 2026-10-21
+title = "Long-Context Modeling and LLM Optimization"
+blurb = "Making models cheaper to serve and able to read more: serving, distillation, pruning and quantization, then long contexts with compressed prompts and caches, hierarchical and sparse attention, and recurrent memory."
+icon  = "ri-timer-flash-line"
+
+  [[days.resources]]
+  name   = "Inference Optimisation"
+  detail = "LLM inference and serving, knowledge distillation, pruning, quantization, and TurboQuant"
+  kind   = "slides"
+  file   = "Slides/Day_8/01_Inference_Optimisation.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Long-Context Modeling"
+  detail = "Claimed versus effective context, prompt compression, KV-cache compression, hierarchical and block-sparse attention, segment recurrence, linear memory, and choosing a technique"
+  kind   = "slides"
+  file   = "Slides/Day_8/02_Long_Context_Modeling.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Labs"
+  detail = "In preparation"
+  kind   = "lab"
+  status = "todo"
+
+[[days]]
+slug  = "day9"
+label = "Day 9"
+week  = 2
+date  = 2026-10-22
+title = "Distributed Training and Production Systems"
+blurb = "Training and serving models too large for one GPU: where the memory goes, data, tensor, pipeline and sequence parallelism, ZeRO and FSDP, and multi-GPU inference."
+icon  = "ri-server-line"
+
+  [[days.resources]]
+  name   = "Distributed Training and Serving"
+  detail = "The memory anatomy of training, data parallelism, ZeRO and FSDP, tensor, pipeline, sequence and context parallelism, frameworks in practice, precision and communication, and multi-GPU inference"
+  kind   = "slides"
+  file   = "Slides/Day_9/01_Distributed_Training_and_Serving.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Labs"
+  detail = "In preparation"
+  kind   = "lab"
+  status = "todo"
+
+[[days]]
+slug  = "day10"
+label = "Day 10"
+week  = 2
+date  = 2026-10-23
+title = "Evaluation, Security, and Enterprise NLP"
+blurb = "Knowing whether a model works and keeping it safe: benchmarks, arenas, LLM judges and statistical rigor, then hallucination, jailbreaks, poisoning and privacy, and building retrieval and assistants for the enterprise."
+icon  = "ri-shield-check-line"
+
+  [[days.resources]]
+  name   = "LLM Evaluation"
+  detail = "Benchmarks, instruction following and arenas, LLM-as-a-judge, RAG evaluation, contamination, robustness and factuality, statistical rigor, and building a custom eval"
+  kind   = "slides"
+  file   = "Slides/Day_10/01_LLM_Evaluation.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Security and Enterprise NLP"
+  detail = "Hallucination, adversarial attacks and jailbreak defenses, data poisoning and privacy, then enterprise semantic search, scalable RAG, knowledge graphs, document intelligence, copilots, domain-specific LLMs and on-premises deployment"
+  kind   = "slides"
+  file   = "Slides/Day_10/02_Security_and_Enterprise_NLP.pdf"
+  status = "ready"
+
+  [[days.resources]]
+  name   = "Labs"
+  detail = "In preparation"
+  kind   = "lab"
+  status = "todo"
+
+# -----------------------------------------------------------------------------
+# Extra — optional material, on its own page, available all fortnight.
+# Empty for now. To add something, drop the file in Extra/ and add a block:
+#
+#   [[extra]]
+#   name   = "Python Cheat Sheet"
+#   detail = "Quick reference for the Python used across the labs"
+#   kind   = "reference"
+#   file   = "Extra/Python_Cheat_Sheet.pdf"
+#   status = "ready"
+# -----------------------------------------------------------------------------
